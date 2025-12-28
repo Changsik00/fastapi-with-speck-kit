@@ -1,8 +1,10 @@
-<<<<<<< HEAD
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
+*.pyc
+*.pyo
+*.pyd
 
 # C extensions
 *.so
@@ -53,16 +55,16 @@ coverage.xml
 *.mo
 *.pot
 
-# Django stuff:
+# Django stuff
 *.log
 local_settings.py
 db.sqlite3
 
-# Flask stuff:
+# Flask stuff
 instance/
 .webassets-cache
 
-# Scrapy stuff:
+# Scrapy stuff
 .scrapy
 
 # Sphinx documentation
@@ -86,7 +88,7 @@ __pypackages__/
 
 # Celery stuff
 celerybeat-schedule
-celerybeat.pid
+celerybeat-schedule.pid  # 오타 수정: 원본에 .pid 누락된 듯
 
 # SageMath parsed files
 *.sage.py
@@ -117,28 +119,16 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-=======
-# Python
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-.venv/
-venv/
-env/
-dist/
-build/
-*.egg-info/
-.pytest_cache/
 
-# Universal
+# Universal / OS specific
 .DS_Store
 Thumbs.db
 *.tmp
 *.swp
+
+# IDE / Editor
 .vscode/
 .idea/
 
-# Gemini
+# Gemini (추가된 부분)
 .gemini/
->>>>>>> df6dc60 (feat: Implement CRUD API endpoints for Item resource)
