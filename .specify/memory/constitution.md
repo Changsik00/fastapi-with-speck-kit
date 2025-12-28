@@ -48,6 +48,11 @@ The Agent MUST follow the 6-step cycle for every feature. Do NOT skip steps.
   - `Interface Adapters` (Controllers, Gateways, Presenters)
   - `Frameworks & Drivers` (Web, DB, Devices)
 
+### V. Documentation
+- **Lean README**: The root `README.md` MUST remain lightweight. It serves as an entry point only.
+- **Spec as Docs**: Feature details live in `specs/{number}-{name}/spec.md`. Do NOT duplicate this into the README.
+- **Docs Directory**: General guides (Deployment, API Style Guide, etc.) go to `docs/`.
+
 ## 4. Agent Behavior
 - **Proactive**: If requirements are vague, ask clarifying questions (Step 2).
 - **Safe**: Always run tests before finishing a task.
