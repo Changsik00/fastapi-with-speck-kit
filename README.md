@@ -7,6 +7,8 @@
 - **Spec over Code**: 코드를 먼저 짜는 것이 아니라, `specify` CLI를 통해 `specs/` -> `plans/` -> `tasks/` 순서로 사고 과정을 기록합니다.
 - **FastAPI Optimized**: Pydantic v2와 Python 3.12+의 최신 기능을 활용하여 타입 안정성과 자동 문서화(OpenAPI)를 극대화합니다.
 
+- **Constitution (`.specify/memory/constitution.md`)**: 프로젝트의 모든 작업은 이 헌법에 정의된 Git Workflow, SDD 프로세스, Clean Architecture 원칙을 따릅니다. Agent는 작업을 시작하기 전에 반드시 이 문서를 숙지해야 합니다.
+
 ## 🛠 Tech Stack
 - **Framework**: FastAPI
 - **Package Manager**: uv

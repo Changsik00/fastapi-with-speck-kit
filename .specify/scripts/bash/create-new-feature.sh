@@ -272,6 +272,12 @@ if [ ${#BRANCH_NAME} -gt $MAX_BRANCH_LENGTH ]; then
 fi
 
 if [ "$HAS_GIT" = true ]; then
+    # Ensure we start from main
+    echo "[specify] Checking out main branch to ensure clean state..."
+    git checkout main || { echo "Warning: Could not checkout main"; }
+    # Try to pull latest changes if remote exists
+    git pull origin main 2>/dev/null || true
+    
     git checkout -b "$BRANCH_NAME"
 else
     >&2 echo "[specify] Warning: Git repository not detected; skipped branch creation for $BRANCH_NAME"
