@@ -15,7 +15,7 @@
 - **SDD Tool**: Spec-Kit (`specify` CLI)
 - **Runtime**: Python 3.12+
 
-## � Quick Start
+## Quick Start
 
 ### Installation
 ```bash
@@ -35,7 +35,7 @@ uv run uvicorn src.app.main:app --reload
 uv run pytest
 ```
 
-## �📚 Documentation
+## 📚 Documentation
 - **Detailed Docs**: [docs/](docs/)
 - **Feature Specs**: [specs/](specs/)
 - **Architecture**: [Constitution](.specify/memory/constitution.md)
