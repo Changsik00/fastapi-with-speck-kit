@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from src.app.routers.items import router as items_router
 
 app = FastAPI(
     title="FastAPI Clean Architecture",
@@ -6,7 +7,7 @@ app = FastAPI(
     version="0.1.0",
 )
 
-# No router included by default. Routers will be included explicitly where needed (e.g., in tests).
+app.include_router(items_router)
 
 @app.get("/")
 def read_root():
