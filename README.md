@@ -26,6 +26,9 @@ uv sync  # or pip install -r requirements.txt
 ```bash
 uv run uvicorn src.app.main:app --reload
 ```
+> **API Check**: 서버 실행 후 다음 주소에서 엔드포인트를 확인할 수 있습니다.
+> - **Swagger UI**: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
+> - **ReDoc**: [http://127.0.0.1:8000/redoc](http://127.0.0.1:8000/redoc)
 
 ### Run Tests
 ```bash
