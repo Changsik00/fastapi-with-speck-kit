@@ -63,6 +63,12 @@ The Agent MUST follow the 6-step cycle for every feature in **Mode A**. Do NOT s
   - `Use Cases` (Application Business Rules)
   - `Interface Adapters` (Controllers, Gateways, Presenters)
   - `Frameworks & Drivers` (Web, DB, Devices)
+- **Directory Structure**:
+  - `app/api`: Presentation Layer
+  - `app/services`: Application Layer (Use Cases)
+  - `app/domain`: Domain Layer (Models, Interfaces)
+  - `app/infrastructure`: Infrastructure Layer
+  - `app/core`: Shared Utilities
 
 ### 5. Documentation
 - **Lean README**: The root `README.md` MUST remain lightweight. It serves as an entry point only.

@@ -1,8 +1,8 @@
 import pytest
 from fastapi import FastAPI
 from fastapi.testclient import TestClient
-from src.app.routers.items import router as items_router, get_item_repository
-from src.infrastructure.repositories.in_memory_item_repository import InMemoryItemRepository
+from app.api.v1.items import router as items_router, get_item_repository
+from app.infrastructure.repositories.in_memory_item_repository import InMemoryItemRepository
 
 @pytest.fixture(name="app_fixture")
 def app_fixture():

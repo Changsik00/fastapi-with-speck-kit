@@ -1,6 +1,6 @@
 from typing import List, Optional, Dict
-from src.domain.models.item import Item, ItemCreate
-from src.domain.repositories.item import ItemRepository
+from app.domain.models.item import Item, ItemCreate
+from app.domain.repository_interfaces.item import ItemRepository
 
 class InMemoryItemRepository(ItemRepository):
     def __init__(self):

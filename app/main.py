@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-from src.app.routers.items import router as items_router
-from src.app.errors.http_error_handlers import http_404_handler
+from app.api.v1.items import router as items_router
+from app.core.errors.http_error_handlers import http_404_handler
 
 app = FastAPI(
     title="FastAPI Clean Architecture",

@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 from typing import List, Optional
-from src.domain.models.item import Item, ItemCreate
+from app.domain.models.item import Item, ItemCreate
 
 class ItemRepository(ABC):
 

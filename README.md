@@ -24,7 +24,7 @@ uv sync  # or pip install -r requirements.txt
 
 ### Run Server
 ```bash
-uv run uvicorn src.app.main:app --reload
+uv run uvicorn app.main:app --reload
 ```
 > **API Check**: 서버 실행 후 다음 주소에서 엔드포인트를 확인할 수 있습니다.
 > - **Swagger UI**: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
@@ -33,6 +33,22 @@ uv run uvicorn src.app.main:app --reload
 ### Run Tests
 ```bash
 uv run pytest
+```
+
+## 4. Project Structure (Clean Architecture)
+The project follows a strict Clean Architecture layout:
+
+```
+app/
+├── main.py              # Application Entrypoint
+├── api/                 # Presentation Layer (Routes, Dependency Injection)
+│   └── v1/
+├── core/                # Core Utilities, Config, Exceptions
+├── services/            # Application Layer (Business Logic, Use Cases)
+├── domain/              # Domain Layer (Entities, Repository Interfaces)
+│   ├── models/
+│   └── repository_interfaces/
+└── infrastructure/      # Infrastructure Layer (DB, External APIs)
 ```
 
 ## 📚 Documentation

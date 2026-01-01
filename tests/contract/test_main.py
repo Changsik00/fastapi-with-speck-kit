@@ -3,7 +3,7 @@ import sys
 import os
 
 # Add the src directory to the sys.path to allow for absolute imports
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../src')))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
 
 # This import will fail initially, which is expected in TDD
 from app.main import app
