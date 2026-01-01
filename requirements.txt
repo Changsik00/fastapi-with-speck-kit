@@ -16,3 +16,6 @@ pydantic-settings
 sqlmodel
 asyncpg
 greenlet
+aiosqlite
+httpx
+pytest-asyncio
