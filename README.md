@@ -67,7 +67,7 @@ app/
 > 💡 자세한 절차는 [Constitution](.specify/memory/constitution.md)을 참고하세요.
 
 ## 🚀 Learning Roadmap (To-Do)
-- [ ] **1. Configuration**: `pydantic-settings` & `.env` file implementation.
+- [x] ~~**1. Configuration**: `pydantic-settings` & `.env` file implementation.~~
 - [ ] **2. Real Database**: Replace InMemory with `SQLModel` & `SQLite`.
 - [ ] **3. Async Database**: Convert Repository/Service to `async`/`await`.
 - [ ] **4. Migrations**: Database schema management with `Alembic`.
