@@ -1,23 +1,14 @@
-from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from app.core.config import settings
 from app.api.v1.items import router as items_router
 from app.core.errors.http_error_handlers import http_404_handler
-from app.core.database import engine
-from app.domain.models.item import Item # Import needed for metadata
 
-@asynccontextmanager
-async def lifespan(app: FastAPI):
-    # Create tables on startup
-    async with engine.begin() as conn:
-        await conn.run_sync(Item.metadata.create_all)
-    yield
+# Lifespan for table creation is removed in favor of Alembic migrations.
 
 app = FastAPI(
     title=settings.PROJECT_NAME,
     description="An example of a FastAPI application following clean architecture principles.",
-    version="0.1.0",
-    lifespan=lifespan
+    version="0.1.0"
 )
 
 app.include_router(items_router)
