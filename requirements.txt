@@ -19,3 +19,4 @@ greenlet
 aiosqlite
 httpx
 pytest-asyncio
+alembic

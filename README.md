@@ -85,7 +85,7 @@ To avoid polluting the real database (e.g., Supabase) during tests, we use **In-
 ## 🚀 Learning Roadmap (To-Do)
 - [x] ~~**1. Configuration**: `pydantic-settings` & `.env` file implementation.~~
 - [x] ~~**2. Real Database**: Replace InMemory with `SQLModel` & `SQLite` (Actual: Supabase PostgreSQL).~~
-- [ ] **3. Async Database**: Convert Repository/Service to `async`/`await`.
+- [x] ~~**3. Async Database**: Convert Repository/Service to `async`/`await` (Already done with Real DB).~~
 - [ ] **4. Migrations**: Database schema management with `Alembic`.
 - [ ] **5. Dependency Injection**: Refactor `main.py` using `Depends` for dependency chains.
 - [ ] **6. Authentication**: Implement JWT Login & User Domain.
