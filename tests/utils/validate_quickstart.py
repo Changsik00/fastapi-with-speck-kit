@@ -46,7 +46,8 @@ def validate():
         print("  Assertion Passed: Item created successfully.")
     except requests.exceptions.RequestException as e:
         print(f"  Error creating item: {e}")
-        if e.response: print(f"  Response: {e.response.text}")
+        if e.response: 
+            print(f"  Response: {e.response.text}")
         return
 
     # 2. Read all items
@@ -62,7 +63,8 @@ def validate():
         print("  Assertion Passed: All items read successfully.")
     except requests.exceptions.RequestException as e:
         print(f"  Error reading all items: {e}")
-        if e.response: print(f"  Response: {e.response.text}")
+        if e.response:
+            print(f"  Response: {e.response.text}")
         return
 
     # 3. Read a specific item (e.g., item_id=1)
@@ -79,7 +81,8 @@ def validate():
         print("  Assertion Passed: Specific item read successfully.")
     except requests.exceptions.RequestException as e:
         print(f"  Error reading specific item: {e}")
-        if e.response: print(f"  Response: {e.response.text}")
+        if e.response:
+            print(f"  Response: {e.response.text}")
         return
 
     # 4. Update an item (e.g., item_id=1)
@@ -97,7 +100,8 @@ def validate():
         print("  Assertion Passed: Item updated successfully.")
     except requests.exceptions.RequestException as e:
         print(f"  Error updating item: {e}")
-        if e.response: print(f"  Response: {e.response.text}")
+        if e.response:
+            print(f"  Response: {e.response.text}")
         return
 
     # 5. Delete an item (e.g., item_id=1)
@@ -117,7 +121,8 @@ def validate():
         print("  Assertion Passed: Item confirmed deleted.")
     except requests.exceptions.RequestException as e:
         print(f"  Error deleting item: {e}")
-        if e.response: print(f"  Response: {e.response.text}")
+        if e.response:
+            print(f"  Response: {e.response.text}")
         return
 
     print("\n--- Quickstart Validation Complete ---")

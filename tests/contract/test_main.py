@@ -1,4 +1,3 @@
-from fastapi.testclient import TestClient
 import sys
 import os
 import pytest
@@ -8,7 +7,7 @@ from httpx import AsyncClient
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
 
 # This import will fail initially, which is expected in TDD
-from app.main import app
+from app.main import app  # noqa: F401
 
 # The client fixture will be provided by pytest-asyncio and httpx
 # We no longer need a global client = TestClient(app)

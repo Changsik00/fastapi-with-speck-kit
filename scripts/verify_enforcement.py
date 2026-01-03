@@ -12,7 +12,7 @@ async def verify_db_enforcement():
             print("1. Testing Regex Constraint ('Apple!')")
             await conn.execute(text("INSERT INTO item (name, description) VALUES ('Apple!', 'Desc')"))
             print("❌ FAILURE: Inserted invalid name 'Apple!'. Constraint is MISSING or INACTIVE.")
-    except (IntegrityError, DBAPIError) as e:
+    except (IntegrityError, DBAPIError):
         print("✅ SUCCESS: DB rejected 'Apple!'.")
         
     print("-" * 30)
@@ -24,7 +24,7 @@ async def verify_db_enforcement():
             print(f"2. Testing Length Constraint ({len(long_name)} chars)")
             await conn.execute(text(f"INSERT INTO item (name, description) VALUES ('{long_name}', 'Desc')"))
             print(f"❌ FAILURE: Inserted {len(long_name)} chars. Constraint is MISSING or INACTIVE.")
-    except (IntegrityError, DBAPIError) as e:
+    except (IntegrityError, DBAPIError):
         print("✅ SUCCESS: DB rejected long name.")
 
     print("-" * 30)
