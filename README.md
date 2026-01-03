@@ -53,9 +53,9 @@ app/
 
 ## 📚 Documentation
 - **Detailed Docs**: [docs/](docs/)
-  - [Clean Architecture Q&A](docs/clean_architecture_qna.md)
-  - [Clean Architecture Concept & Diagram](docs/clean_architecture_concept.md)
-  - [Database Strategy (SQLModel + Alembic + asyncpg)](docs/database_strategy.md)
+  - **[Clean Architecture Q&A](docs/clean_architecture_qna.md)**: Frequently asked questions about the architecture.
+  - **[Database Strategy](docs/database_strategy.md)**: Why we use SQLModel, Alembic, and Asyncpg.
+  - **[Database Migration Guide (Safety Manual)](docs/database_migration_guide.md)**: ⚠️ Operation manual for safe schema changes.
 - **Feature Specs**: [specs/](specs/)
 - **Architecture**: [Constitution](.specify/memory/constitution.md)
 
