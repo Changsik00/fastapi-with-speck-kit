@@ -74,3 +74,27 @@ op.alter_column('users', 'address', new_column_name='full_address')
     - 더 이상 쓰이지 않는 `address` 컬럼을 삭제(`drop_column`)합니다.
 
 이 방식은 시간은 걸리지만 **무중단**으로, **데이터 손실 위험 없이** 스키마를 변경하는 가장 안전한 방법입니다.
+
+---
+
+## 5. 🛑 데이터 손실 방지 정책 (Anti-Drop Policy)
+
+**"우리는 어떤 경우에도 운영 데이터를 잃어서는 안 됩니다."**
+
+### 5.1. 금지 사항 (Forbidden Actions)
+1.  **NO DROP**: 마이그레이션 스크립트(`upgrade` 함수) 안에 `op.drop_table`이 포함되어 있다면 **절대 승인 금지**입니다.
+    *   예외: "Expand and Contract" 전략에 따라 데이터 이관이 100% 완료된 후, 더 이상 쓰이지 않는 테이블을 삭제하는 경우는 제외. (단, 이 경우에도 백업 필수)
+2.  **Re-init 금지**: `drop_tables.py` 같은 초기화 스크립트는 로컬 개발 환경(`local`)이나 테스트(`test`) 환경에서만 사용해야 합니다. 운영(`prod`)에서는 절대 실행하지 마십시오.
+
+### 5.2. 필수 절차 (Mandatory Procedures)
+1.  **Backup First**: 운영 DB에 마이그레이션을 적용하기 전, 반드시 **스냅샷(Snapshot) 백업**을 생성해야 합니다.
+2.  **Dry Run**: 실제 적용 전에 로컬 `staging` 환경에서 마이그레이션을 리허설하고 데이터 손실 여부를 확인하세요.
+
+---
+
+## 6. 데이터 복구 (Data Recovery)
+
+혹시라도 초기화 등으로 데이터가 사라졌을 경우를 대비해, 기준 정보(Master Data)를 복구할 수 있는 시딩(Seeding) 스크립트를 관리해야 합니다.
+
+- **스크립트 위치**: `scripts/seed_data.py` (예정)
+- **사용법**: `uv run python scripts/seed_data.py`
