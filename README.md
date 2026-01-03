@@ -59,6 +59,17 @@ app/
 - **Feature Specs**: [specs/](specs/)
 - **Architecture**: [Constitution](.specify/memory/constitution.md)
 
+## 🤖 AI Agent Guide
+This project is designed to be agent-friendly. If you are an AI agent (or a human pretending to be one), please read the following:
+- **Bootstrap Protocol**: [agent.md](agent.md) (Read this first!)
+- **Constitution**: [.specify/memory/constitution.md](.specify/memory/constitution.md) (The Supreme Law)
+
+## 📜 Contributing
+All contributions must follow the **Strict SDD** workflow defined in `agent.md`.
+1. **Branch First**: Always create a new branch.
+2. **Plan First**: Propose a plan and get approval.
+3. **Spec-Kit**: Use `spec-kit` tools where possible.
+
 ## 📝 Workflow
 1. **Specify**: 기능 명세 작성 (`specs/{branch}/spec.md`)
 2. **Clarify**: 요구사항 구체화 및 질문 해결
