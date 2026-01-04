@@ -64,6 +64,7 @@ app/
 - **[🤖 AI Agent Guide](agent.md)**: AI 에이전트(`Antigravity`)와의 협업 규칙 및 프로토콜.
 - **[📜 Contribution Guide](.specify/memory/constitution.md)**: 프로젝트 기여를 위한 핵심 원칙(Clean Architecture, SDD).
 - **[🛡️ DB Migration Policy](docs/db-migration-policy.md)**: 데이터베이스 마이그레이션 안전 수칙 및 권한 관리 가이드.
+- **[🛠️ Manual Migration Script](docs/manual-migration-guide.md)**: 수동 마이그레이션 스크립트(`scripts/manual_migrate.sh`) 사용법 및 주의사항.
 
 ## 📜 기여 가이드 (Contributing)
 모든 기여는 `agent.md`에 정의된 **Strict SDD** 워크플로우를 따라야 합니다.
