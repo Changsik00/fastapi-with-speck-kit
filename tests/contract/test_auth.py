@@ -1,6 +1,5 @@
 import pytest
 from httpx import AsyncClient
-from app.domain.models.user import UserRole
 
 @pytest.mark.asyncio
 async def test_signup_flow(client: AsyncClient):
