@@ -3,7 +3,9 @@ from fastapi import APIRouter, Depends, HTTPException, status
 
 from app.api.deps import get_item_service
 from app.domain.models.item import Item, ItemCreate
+from app.domain.models.user import User
 from app.services.item_service import ItemService
+from app.api import deps
 
 router = APIRouter(
     prefix="/items",
@@ -12,7 +14,11 @@ router = APIRouter(
 )
 
 @router.post("/", response_model=Item, status_code=status.HTTP_201_CREATED)
-async def create_item(item: ItemCreate, service: ItemService = Depends(get_item_service)):
+async def create_item(
+    item: ItemCreate, 
+    service: ItemService = Depends(get_item_service),
+    current_user: User = Depends(deps.get_current_user)
+):
     return await service.create_item(item)
 
 @router.get("/", response_model=List[Item])

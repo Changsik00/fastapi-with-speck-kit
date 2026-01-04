@@ -13,7 +13,7 @@ app = FastAPI(
 
 from app.api.v1.auth import router as auth_router
 
-app.include_router(items_router)
+app.include_router(items_router, prefix=settings.API_V1_STR)
 app.include_router(auth_router, prefix=f"{settings.API_V1_STR}/auth", tags=["auth"])
 app.add_exception_handler(404, http_404_handler)
 
