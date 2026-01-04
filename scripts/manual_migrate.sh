@@ -1,8 +1,14 @@
 #!/bin/bash
 set -e
 
-# Usage: ./scripts/manual_migrate.sh "postgresql+asyncpg://user:pass@host:5432/dbname"
-# If no argument provided, checks for MIGRATION_DB_URL env var.
+# Usage: ./scripts/manual_migrate.sh [OPTIONAL_DB_URL]
+# Automatically loads from .env if present.
+
+# 0. Load .env file if it exists
+if [ -f .env ]; then
+    echo "📄 Loading configuration from .env..."
+    export $(grep -v '^#' .env | xargs)
+fi
 
 TARGET_DB_URL="$1"
 
@@ -10,10 +16,12 @@ TARGET_DB_URL="$1"
 if [ -z "$TARGET_DB_URL" ]; then
     if [ -n "$MIGRATION_DB_URL" ]; then
         TARGET_DB_URL="$MIGRATION_DB_URL"
-        echo "🔹 Using MIGRATION_DB_URL from environment."
+        echo "🔹 Using MIGRATION_DB_URL from .env"
+    elif [ -n "$DATABASE_URL" ]; then
+        TARGET_DB_URL="$DATABASE_URL"
+        echo "🔹 Using DATABASE_URL from .env"
     else
-        echo "❌ Error: Please provide a DB URL as an argument or set MIGRATION_DB_URL."
-        echo "Usage: $0 \"postgresql+asyncpg://user:pass@host:5432/dbname\""
+        echo "❌ Error: Could not find DB URL in arguments or .env (MIGRATION_DB_URL / DATABASE_URL)."
         exit 1
     fi
 fi
