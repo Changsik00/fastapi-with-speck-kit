@@ -1,4 +1,3 @@
-from datetime import timedelta
 from app.services.auth_service import AuthService
 from app.core.config import settings
 from jose import jwt

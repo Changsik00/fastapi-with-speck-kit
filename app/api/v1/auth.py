@@ -1,11 +1,9 @@
-from datetime import timedelta
 from typing import Annotated, Any
 from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordRequestForm
 
 from app.api import deps
-from app.core.config import settings
-from app.domain.models.user import User, UserRole, Token, UserCreate, UserResponse
+from app.domain.models.user import Token, UserCreate, UserResponse
 from app.domain.repository_interfaces.user_repository import UserRepository
 from app.services.auth_service import AuthService
 
