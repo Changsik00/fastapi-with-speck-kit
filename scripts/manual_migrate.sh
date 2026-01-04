@@ -53,7 +53,10 @@ if command -v pg_dump &> /dev/null; then
     pg_dump "$PG_DUMP_URL" --no-owner --no-acl > "$BACKUP_FILE"
     echo "✅ Backup completed: $BACKUP_FILE"
 else
-    echo "⚠️  Warning: 'pg_dump' not found. Skipping backup."
+    echo "⚠️  Warning: 'pg_dump' command not found!"
+    echo "   (To fix: brew install libpq && brew link --force libpq)"
+    echo "   Skipping backup..."
+    
     read -p "⚠️  Proceed without backup? (y/N) " -n 1 -r
     echo
     if [[ ! $REPLY =~ ^[Yy]$ ]]; then
