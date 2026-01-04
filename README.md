@@ -61,8 +61,9 @@ app/
 
 ## 🤖 AI 에이전트 가이드 (AI Agent Guide)
 이 프로젝트는 AI 에이전트 친화적으로 설계되었습니다. 에이전트(또는 에이전트 역할을 하는 사람)는 다음을 필독하세요:
-- **부트스트랩 프로토콜**: [agent.md](agent.md) (가장 먼저 읽으세요!)
-- **헌법 (Constitution)**: [.specify/memory/constitution.md](.specify/memory/constitution.md) (최상위 규칙)
+- **[🤖 AI Agent Guide](agent.md)**: AI 에이전트(`Antigravity`)와의 협업 규칙 및 프로토콜.
+- **[📜 Contribution Guide](.specify/memory/constitution.md)**: 프로젝트 기여를 위한 핵심 원칙(Clean Architecture, SDD).
+- **[🛡️ DB Migration Policy](docs/db-migration-policy.md)**: 데이터베이스 마이그레이션 안전 수칙 및 권한 관리 가이드.
 
 ## 📜 기여 가이드 (Contributing)
 모든 기여는 `agent.md`에 정의된 **Strict SDD** 워크플로우를 따라야 합니다.
