@@ -14,3 +14,7 @@ class UserRepository(ABC):
     @abstractmethod
     async def get_multi(self, skip: int = 0, limit: int = 100, role: Optional[UserRole] = None) -> List[User]:
         pass
+
+    @abstractmethod
+    async def update(self, user: User) -> User:
+        pass

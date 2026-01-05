@@ -26,3 +26,14 @@ class UserCreate(UserBase):
 
 class UserResponse(UserBase):
     id: int
+
+class PasswordChangeRequest(SQLModel):
+    current_password: str
+    new_password: str
+
+class PasswordRecoverRequest(SQLModel):
+    email: EmailStr
+
+class PasswordResetRequest(SQLModel):
+    token: str
+    new_password: str
