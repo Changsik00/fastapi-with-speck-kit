@@ -25,3 +25,9 @@ class PostgresUserRepository(UserRepository):
             query = query.where(User.role == role)
         result = await self.session.exec(query)
         return result.all()
+
+    async def update(self, user: User) -> User:
+        self.session.add(user)
+        await self.session.commit()
+        await self.session.refresh(user)
+        return user

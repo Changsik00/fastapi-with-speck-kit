@@ -60,3 +60,37 @@ class AuthService:
             is_active=True,
         )
         return await user_repo.create(user=user_in)
+
+    async def change_password(self, user_repo: Any, user: User, current_password: str, new_password: str) -> Any:
+        if not self.verify_password(current_password, user.hashed_password):
+            raise ValueError("Incorrect password")
+        
+        hashed_password = self.get_password_hash(new_password)
+        user.hashed_password = hashed_password
+        return await user_repo.update(user=user)
+
+    def create_password_reset_token(self, email: str) -> str:
+        delta = timedelta(minutes=15)
+        expire = datetime.utcnow() + delta
+        # Add "type": "reset" to distinguish from access tokens
+        to_encode = {"exp": expire, "sub": email, "type": "reset"}
+        encoded_jwt = jwt.encode(to_encode, settings.SECRET_KEY, algorithm=settings.ALGORITHM)
+        return encoded_jwt
+
+    async def reset_password(self, user_repo: Any, token: str, new_password: str) -> Any:
+        try:
+            payload = jwt.decode(token, settings.SECRET_KEY, algorithms=[settings.ALGORITHM])
+            email = payload.get("sub")
+            token_type = payload.get("type")
+            if email is None or token_type != "reset":
+                raise ValueError("Invalid token")
+        except Exception:
+            raise ValueError("Invalid token")
+        
+        user = await user_repo.get_by_email(email=email)
+        if not user:
+            raise ValueError("User not found")
+        
+        hashed_password = self.get_password_hash(new_password)
+        user.hashed_password = hashed_password
+        return await user_repo.update(user=user)
