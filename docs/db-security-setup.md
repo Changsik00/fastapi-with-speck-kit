@@ -4,13 +4,24 @@
 이 가이드는 **역할 분리(Role Separation)**를 통해 Supabase/PostgreSQL 데이터베이스의 보안을 강화하는 방법을 설명합니다.
 이 설정은 애플리케이션이 실수로 테이블을 삭제하거나 스키마를 변경하는 것을 방지합니다.
 
-## 역할 (Roles)
-1.  **Migration User** (`postgres` 또는 `migration_user`)
-    -   **권한**: 전체 관리자 권한 (DDL + DML).
-    -   **용도**: CI/CD 파이프라인, Alembic 마이그레이션, 초기 설정.
-2.  **Application User** (`app_user`)
-    -   **권한**: 읽기/쓰기 (DML) 전용. (`SELECT`, `INSERT`, `UPDATE`, `DELETE`).
-    -   **용도**: 실행 중인 FastAPI 애플리케이션.
+## 역할 (Roles) 정의
+
+**현재 상황**: `.env`에 있는 정보는 **관리자(Admin/Superuser)** 계정입니다.
+(`postgres[.project_ref]` 등). 이 계정은 모든 권한이 있어 위험합니다.
+
+우리의 목표는 **새로운, 힘이 약한 계정**을 하나 더 만드는 것입니다.
+
+1.  **Migration User (기존 계정)**
+    -   **계정명**: `postgres` (또는 `.env`에 있는 현재 사용자)
+    -   **비밀번호**: 현재 `.env`에 있는 비밀번호 (`pmqj...`)
+    -   **권한**: **신(God)**. 테이블 삭제, 생성 등 모든 것이 가능.
+    -   **용도**: 앞으로는 **배포(Migration)** 때만 사용합니다.
+
+2.  **Application User (새로 만들 계정)**
+    -   **계정명**: `app_user` (스크립트로 생성)
+    -   **비밀번호**: **새로 설정할 비밀번호** (스크립트에서 `YOUR_SECURE_PASSWORD` 부분을 수정)
+    -   **권한**: **일반인**. 데이터 조회/추가만 가능. (테이블 삭제 불가)
+    -   **용도**: **FastAPI 서버**가 평소에 사용합니다.
 
 ## 🚀 설정 방법 (Setup Instructions)
 
