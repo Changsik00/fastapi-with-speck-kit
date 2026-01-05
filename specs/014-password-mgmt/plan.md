@@ -48,3 +48,8 @@ Implement secure password management features: allowing authenticated users to c
     - `test_recover_password`: Request token (mocked).
     - `test_reset_password_success`: Use token to set new password.
     - `test_reset_password_invalid_token`: Fail 400.
+
+## Decisions & Issues Log
+| ID | Decision | Rationale | Status |
+|----|----------|-----------|--------|
+| **D-01** | **Dev-Only Token Exposure** | Frontend/Mobile 개발 편의를 위해 `/recover` API 응답에 `reset_token`을 임시 포함. (MVP 이후 제거 필) | **Applied** (Warning Commit) |
