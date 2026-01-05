@@ -2,27 +2,27 @@
 
 이 프로젝트는 **바이브 코딩(Vibe Coding)** 트렌드에 맞춰, GitHub의 [Spec-Kit](https://github.com/github/spec-kit)을 활용한 **사양 주도 개발(Spec-Driven Development, SDD)**을 실험하고 실무에 적용하기 위한 템플릿입니다.
 
-## 🚀 Concept (콘셉트)
+## 🚀 Concept
 - **Agent-Centric**: Antigravity 및 최신 AI 에이전트가 읽고 실행할 수 있는 명확한 스펙(Spec)을 우선합니다.
 - **Spec over Code**: 코드를 먼저 짜는 것이 아니라, `specify` CLI를 통해 `specs/` -> `plans/` -> `tasks/` 순서로 사고 과정을 기록합니다.
 - **FastAPI Optimized**: Pydantic v2와 Python 3.12+의 최신 기능을 활용하여 타입 안정성과 자동 문서화(OpenAPI)를 극대화합니다.
 - **Constitution (`.specify/memory/constitution.md`)**: 프로젝트의 모든 작업은 이 헌법에 정의된 Git Workflow, SDD 프로세스, Clean Architecture 원칙을 따릅니다.
 
-## 🛠 Tech Stack (기술 스택)
+## 🛠 Tech Stack
 - **Framework**: FastAPI
 - **Package Manager**: uv
 - **SDD Tool**: Spec-Kit (`specify` CLI)
 - **Runtime**: Python 3.12+
 - **Auth**: JWT (OAuth2), Argon2, RBAC
 
-## ⚡ Quick Start (시작하기)
+## ⚡ Quick Start
 
-### 1. 설치 (Installation)
+### 1. Installation
 ```bash
 uv sync  # or pip install -r requirements.txt
 ```
 
-### 2. 서버 실행 (Run Server)
+### 2. Run Server
 ```bash
 uv run uvicorn app.main:app --reload
 ```
@@ -30,12 +30,12 @@ uv run uvicorn app.main:app --reload
 > - **Swagger UI**: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
 > - **ReDoc**: [http://127.0.0.1:8000/redoc](http://127.0.0.1:8000/redoc)
 
-### 3. 테스트 실행 (Run Tests)
+### 3. Run Tests
 ```bash
 uv run pytest
 ```
 
-## 🏗️ 프로젝트 구조 (Clean Architecture)
+## 🏗️ Project Structure (Clean Architecture)
 이 프로젝트는 엄격한 **Clean Architecture** 구조를 따르며, 일관성 있는 네이밍 컨벤션을 준수합니다.
 
 ```
@@ -61,23 +61,22 @@ app/
     └── repositories/
 ```
 
-## 📚 문서 (Documentation)
-- **상세 문서**: [docs/](docs/)
+## 📚 Documentation
+- **Specs**: [specs/](specs/)
   - **[Clean Architecture Q&A](docs/clean_architecture_qna.md)**: 아키텍처 관련 질의응답.
   - **[Database Migration Guide](docs/database_migration_guide.md)**: ⚠️ 안전한 스키마 변경을 위한 운영 매뉴얼.
   - **[DB Migration Policy](docs/db-migration-policy.md)**: 데이터베이스 마이그레이션 정책.
-- **기능 명세 (Specs)**: `specs/` 디렉토리 참조.
-- **아키텍처 헌법**: [Constitution](.specify/memory/constitution.md)
-- **AI 에이전트 가이드**: [agent.md](agent.md)
+- **Architecture Constitution**: [Constitution](.specify/memory/constitution.md)
+- **AI Agent Guide**: [agent.md](agent.md)
 
-## 📝 워크플로우 (Workflow - SDD)
+## 📝 Workflow (SDD)
 모든 개발은 `specs/` 디렉토리 내의 문서화를 통해 진행됩니다.
 1. **Spec**: 요구사항 명세 작성
 2. **Plan**: 기술 설계 및 구현 계획
 3. **Tasks**: 세부 작업 목록 정의
 4. **Code**: 구현 및 검증
 
-## 🚀 학습 로드맵 (Roadmap/Status)
+## 🚀 Roadmap & Status
 - [x] ~~**1. Configuration**: `pydantic-settings`. 구현 완료.~~
 - [x] ~~**2. Real Database**: `SQLModel` & `Supabase(PostgreSQL)`. 구현 완료.~~
 - [x] ~~**3. Async Database**: `async`/`await` 적용. 구현 완료.~~
@@ -85,7 +84,7 @@ app/
 - [x] ~~**5. Dependency Injection**: `Depends` 체인 리팩토링. 구현 완료.~~
 - [x] ~~**6. Validation**: Pydantic Validator 적용. 구현 완료.~~
 - [x] ~~**7. Authentication**: JWT Login, Signup, Auth Guard, RBAC. 구현 완료.~~
-- [ ] **8. Password Mgmt**: Change/Reset Password flow. (진행 중)
+- [x] ~~**8. Password Mgmt**: Change/Reset Password flow. 구현 완료.~~
 - [ ] **9. CI/CD**: GitHub Actions pipeline setup.
 - [ ] **10. Dockerize**: Dockerfile & docker-compose setup.
 
