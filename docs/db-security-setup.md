@@ -39,9 +39,19 @@
 
 ### 2. 로컬 환경 설정 (`.env`)
 애플리케이션이 `app_user`를 사용하도록 `.env` 파일을 업데이트합니다:
+
 ```ini
 # For Application (DML) - 평소 실행용
 DATABASE_URL=postgresql+asyncpg://app_user:새_비밀번호@db.xxx.supabase.co:5432/postgres
+```
+
+> **⚠️ Supabase Connection Pooler 주의사항**
+> 만약 호스트가 `pooler.supabase.com`이거나 접속이 안 된다면, 유저명 뒤에 **Project ID**를 붙여야 할 수 있습니다.
+>
+> *   기존: `postgres.ftahjkpkyolefuqoclbj` (예시)
+> *   변경: `app_user.ftahjkpkyolefuqoclbj`
+>
+> Supabase 대시보드의 **Database Settings -> Connection Pooling**에서 정확한 Connection String을 확인할 수 있습니다.
 
 # For Migrations - 마이그레이션 실행용 (필요 시 별도 변수 관리)
 # 로컬에서 마이그레이션 수행 시에는 기존 관리자 계정 정보를 사용하거나,
